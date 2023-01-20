@@ -1,12 +1,12 @@
 from tkinter import * 
 from helper import rgbToColor
-import random
+import random, constants
+
 
 root = Tk() 
 
-rgb = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-root.geometry("800x800")
-root.title("Hackathon App")
-root.config(bg = rgbToColor(rgb)) 
+root.geometry(constants.screensize)
+root.title(constants.title)
+root.config(bg = rgbToColor(constants.rgb)) 
 
 root.mainloop()
