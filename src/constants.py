@@ -9,4 +9,4 @@ title = "Hackathon App"
 font = file['font']
 fontSize = file['fontSize']
 
-rgb = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+rgb =  (0, 255, 204)# (random.randint(0,255), random.randint(0,255), random.randint(0,255))
