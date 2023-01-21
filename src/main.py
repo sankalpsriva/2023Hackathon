@@ -10,6 +10,7 @@ root.title(constants.title)
 root.config(bg = rgbToColor(constants.rgb)) 
 
 button = Button(root)
+button.place(anchor=N)
 
 
 root.mainloop()
