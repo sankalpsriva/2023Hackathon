@@ -9,4 +9,7 @@ root.geometry(constants.screensize)
 root.title(constants.title)
 root.config(bg = rgbToColor(constants.rgb)) 
 
+button = Button(root)
+
+
 root.mainloop()
