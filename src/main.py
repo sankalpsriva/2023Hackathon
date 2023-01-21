@@ -1,5 +1,6 @@
 from tkinter import * 
 from helper import rgbToColor
+from playsound import playsound 
 
 import random, constants
 import numbers
@@ -31,7 +32,7 @@ root = Tk()
 
 root.geometry(constants.screensize)
 root.title(constants.title)
-root.config(bg = rgbToColor(constants.rgb)) 
+root.config(bg = rgbToColor(constants.rgb))     
 
 button = Button(root , command = widht)
 button.place(anchor=NW, width=wit, height=hit)
@@ -43,9 +44,3 @@ settings.place(anchor=NW, width=10, height=10)
 
 
 root.mainloop()
-
-
-
-
-
-
