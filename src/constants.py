@@ -1,4 +1,5 @@
 from tkinter import *
+from helper import *
 import random, json
 
 # JSON 
@@ -10,7 +11,8 @@ with open('2023Hackathon\src\data\settings.json') as file:
 root = Tk()
 screensize = "1000x700"
 title = "Hackathon App"
-rgb =  (0, 255, 204)# (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+color =  (0, 255, 204)# (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+cColor = (255, 0, (255 - 204))
 
 # font 
 font = file['font']

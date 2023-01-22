@@ -1,22 +1,17 @@
 from tkinter import * 
 from helper import *
 from PIL import Image, ImageTk
-import random, constants, numbers
+import random, constants, numbers, tkinterWidgets, playsound
 
 settingsButton = ImageTk.PhotoImage(Image.open(r"2023Hackathon\src\images\gear.png")) 
 
-
 constants.root.geometry(constants.screensize)
 constants.root.title(constants.title)
-constants.root.config(bg = rgbToColor(constants.rgb))     
+constants.root.config(bg = rgbToColor(constants.color))     
 
-button = Button(constants.root, command = lambda: collapse(button))
-button.place(anchor = NW, width = 10, height = constants.heightOnClick)
+tkinterWidgets.button.place(anchor = NW, width = 10, height = constants.heightOnClick)
+tkinterWidgets.settings.place(anchor = NW, width = 20, height = 20)
+tkinterWidgets.timeLabel.place(anchor = N, relx = 0.127, rely = -0.001)
 
-button = Button(constants.root , command = lambda: collapse(button))
-button.place(anchor = NW, width = constants.widthOnClick, height = constants.heightOnClick)
-
-settings = Button(constants.root , text = " ", image = settingsButton)
-settings.place(anchor = NW, width = 20, height = 20)
-
+constants.root.after(1000, lambda: labelUpdate(tkinterWidgets.timeLabel))
 constants.root.mainloop()
