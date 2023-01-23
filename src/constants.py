@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import random, json
 
 # JSON 
-with open('2023Hackathon\src\data\settings.json') as file: 
+with open('src\data\settings.json') as file: 
     file = json.load(file)
     emailEnding = file['userEmail'][str(file['userEmail']).index("@") + 1: ]
 
