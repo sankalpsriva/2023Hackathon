@@ -16,7 +16,7 @@ def collapse(button: Button) -> None:
     else:
         button.place(anchor = N, width = 20, height = constants.heightOnClick)
         constants.collapsed = True
-    playsound(r"src\audio\buttonClick.mp3")
+    playsound(r"audio\buttonClick.mp3")
         
 def settingsMenu():
     
@@ -25,12 +25,12 @@ def settingsMenu():
     root.geometry("400x400")
     root.config(bg = rgbToColor(constants.color))
     
-    playsound(r"src\audio\buttonClick.mp3")
+    playsound(r"audio\buttonClick.mp3")
     
     root.mainloop()
 
 def emailMenu():
-    playsound(r"src\audio\buttonClick.mp3")
+    playsound(r"audio\buttonClick.mp3")
     
     root = Tk()
     root.title("Email")
@@ -55,8 +55,6 @@ def emailMenu():
     
     submitButton.place(anchor = N, relx = 0.5, rely = 0.85)
     
-
-      
     root.mainloop()
     
 def sendMail(message: str, recipent: str) -> None: 

@@ -9,14 +9,12 @@ constants.root.title(constants.title)
 constants.root.config(bg = rgbToColor(constants.color))
 
 
-tkinterWidgets.sedit.place(anchor= NW)
+tkinterWidgets.layoutEdit.place(anchor= NW)
 tkinterWidgets.button.place(anchor = NW, width = 10, height = constants.heightOnClick)
-tkinterWidgets.settings.place(anchor = N, relx = 0.1, rely = -0.001, width = 51, height = 51)
+tkinterWidgets.settings.place(anchor = N, relx = 0.95, rely = 0.01, width = 51, height = 51)
 tkinterWidgets.timeLabel.place(anchor = N, relx = 0.5, rely = -0.001)
-tkinterWidgets.mailButton.place(anchor = N, relx = 0.95, rely = 0.05)
-
-
-
+tkinterWidgets.mailButton.place(anchor = N, relx = 0.95, rely = 0.15)
+tkinterWidgets.timerButton.place(anchor = N, relx = 0.95, rely = 0.20)
 
 frame = Frame(constants.root, bd=4, bg="grey")
 frame.place(x=10, y=10)
