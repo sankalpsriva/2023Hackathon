@@ -55,8 +55,6 @@ def emailMenu():
     
     submitButton.place(anchor = N, relx = 0.5, rely = 0.85)
     
-
-      
     root.mainloop()
     
 def sendMail(message: str, recipent: str) -> None: 
@@ -72,3 +70,12 @@ def sendMail(message: str, recipent: str) -> None:
 def labelUpdate(label: Label) -> None:
     label.config(text = f"{datetime.now().replace(microsecond=0)}")
     constants.root.after(1000, lambda: labelUpdate(label)) 
+
+def timerCommand():
+    root = Tk()
+    
+    root.title("Timer")
+    root.geometry("500x500")
+    root.config(bg = rgbToColor(constants.color))
+
+    
