@@ -87,3 +87,12 @@ def on_drag_motion(event):
     x = widget.winfo_x() - widget._drag_start_x + event.x
     y = widget.winfo_y() - widget._drag_start_y + event.y
     widget.place(x=x, y=y)
+
+def timerCommand():
+    root = Tk()
+    
+    root.title("Timer")
+    root.geometry("500x500")
+    root.config(bg = rgbToColor(constants.color))
+
+    
