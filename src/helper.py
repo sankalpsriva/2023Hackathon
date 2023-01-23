@@ -16,7 +16,7 @@ def collapse(button: Button) -> None:
     else:
         button.place(anchor = N, width = 20, height = constants.heightOnClick)
         constants.collapsed = True
-    playsound(r"2023Hackathon\src\audio\buttonClick.mp3")
+    playsound(r"src\audio\buttonClick.mp3")
         
 def settingsMenu():
     
@@ -25,12 +25,12 @@ def settingsMenu():
     root.geometry("400x400")
     root.config(bg = rgbToColor(constants.color))
     
-    playsound(r"2023Hackathon\src\audio\buttonClick.mp3")
+    playsound(r"src\audio\buttonClick.mp3")
     
     root.mainloop()
 
 def emailMenu():
-    playsound(r"2023Hackathon\src\audio\buttonClick.mp3")
+    playsound(r"src\audio\buttonClick.mp3")
     
     root = Tk()
     root.title("Email")
