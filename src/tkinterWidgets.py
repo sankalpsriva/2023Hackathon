@@ -15,9 +15,13 @@ mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 
 
 layoutEdit = Button(constants.root, text = "Editor", command = None, width = 7)
 
-timeLabel = Label(constants.root, text = f"{datetime.now().replace(microsecond=0)}", 
-            width = 30, wraplength = 500, justify = LEFT, 
+timeLabel = Label(constants.root, text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}", 
+            width = 40, wraplength = 500, justify = LEFT, 
             bg = rgbToColor(constants.color), fg = rgbToColor(constants.cColor), 
-            font = Font(family = "FebruaryNotes-DOwo3", size = 30, weight = "bold"))
+            font = Font(family = "Times New Roman", size = 30, weight = "bold"))
 
 timerButton = Button(constants.root, text = "Start Timer", command = timerCommand) 
+
+frame = Frame(constants.root, bd = 4, bg = "grey")
+
+notes = Text(frame)

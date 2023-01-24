@@ -1,7 +1,6 @@
 from tkinter import *
 from helper import *
-from PIL import Image, ImageTk 
-import random, json
+import json
 
 # JSON 
 with open('data\settings.json') as file: 
@@ -22,6 +21,7 @@ fontSize = file['fontSize']
 # Integers
 heightOnClick = 700
 widthOnClick = 100
+index = 0
 
 # Booleans
 collapsed = True

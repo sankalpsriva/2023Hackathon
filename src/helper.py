@@ -68,7 +68,7 @@ def sendMail(message: str, recipent: str) -> None:
     
     
 def labelUpdate(label: Label) -> None:
-    label.config(text = f"{datetime.now().replace(microsecond=0)}")
+    label.config(text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}")
     constants.root.after(1000, lambda: labelUpdate(label)) 
 
 
@@ -94,5 +94,3 @@ def timerCommand():
     root.title("Timer")
     root.geometry("500x500")
     root.config(bg = rgbToColor(constants.color))
-
-    
