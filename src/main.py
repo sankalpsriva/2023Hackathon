@@ -18,11 +18,13 @@ tkinterWidgets.settings.place(anchor = N, relx = 0.95, rely = 0.01, width = 51, 
 tkinterWidgets.timeLabel.place(anchor = N, relx = 0.5, rely = -0.001)
 tkinterWidgets.mailButton.place(anchor = N, relx = 0.95, rely = 0.15)
 tkinterWidgets.timerButton.place(anchor = N, relx = 0.95, rely = 0.20)
+tkinterWidgets.googleButton.place(anchor = N, relx = 0.95, rely = 0.3)
+tkinterWidgets.canvasButton.place(anchor = N, relx = 0.95, rely = 0.35)
+tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
+tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
 tkinterWidgets.frame.place(anchor = N, relx = 0.5, rely = 0.2)
 tkinterWidgets.notes.pack()
 
-helper.make_draggable(tkinterWidgets.frame)
-helper.make_draggable(tkinterWidgets.settings)
 
 fonts = list(font.families())
 

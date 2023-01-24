@@ -2,7 +2,7 @@ from tkinter import *
 from datetime import datetime
 from playsound import playsound
 from email.message import EmailMessage
-import constants, smtplib, ssl
+import constants, smtplib, ssl, webbrowser
 
 def rgbToColor(rgb: tuple) -> str: 
     # Code from stackoverflow about changing rgb to tkinter readable color
@@ -18,7 +18,7 @@ def collapse(button: Button) -> None:
         constants.collapsed = True
     playsound(r"audio\buttonClick.mp3")
         
-def settingsMenu():
+def settingsMenu() -> None:
     
     root = Tk()
     root.title("Settings") 
@@ -29,7 +29,7 @@ def settingsMenu():
     
     root.mainloop()
 
-def emailMenu():
+def emailMenu() -> None:
     playsound(r"audio\buttonClick.mp3")
     
     root = Tk()
@@ -71,6 +71,16 @@ def labelUpdate(label: Label) -> None:
     label.config(text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}")
     constants.root.after(1000, lambda: labelUpdate(label)) 
 
+def editEnable(tkFrame: Frame, tkSettings: Button, editButton: Button):
+    if not constants.editEnabled:
+        editButton.config(bg = "green")
+        constants.editEnabled = True
+    else:
+        editButton.config(bg = "white")
+        constants.editEnabled = False
+        
+    make_draggable(tkFrame)
+    make_draggable(tkSettings)
 
 #    makes items draggable
 def make_draggable(widget):
@@ -88,9 +98,12 @@ def on_drag_motion(event):
     y = widget.winfo_y() - widget._drag_start_y + event.y
     widget.place(x=x, y=y)
 
-def timerCommand():
+def timerCommand() -> None:
     root = Tk()
     
     root.title("Timer")
     root.geometry("500x500")
     root.config(bg = rgbToColor(constants.color))
+    
+def openWebsite(url: str) -> None:
+    webbrowser.open(url)

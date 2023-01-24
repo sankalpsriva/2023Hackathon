@@ -13,7 +13,10 @@ settings = Button(constants.root, image = gearImage, text = "settings", command 
 
 mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 7)
 
-layoutEdit = Button(constants.root, text = "Editor", command = None, width = 7)
+googleButton = Button(constants.root, text = "Google", command = lambda: openWebsite("google.com")) 
+canvasButton = Button(constants.root, text = "Canvas", command = lambda: openWebsite("hse.instructure.com")) 
+skywardButton = Button(constants.root, text = "Skyward", command = lambda: openWebsite("https://sis.hse.k12.in.us/scripts/wsisa.dll/WService=wsEAplus/seplog01.w")) 
+cleverButton = Button(constants.root, text = "Clever", command = lambda: openWebsite("clever.com")) 
 
 timeLabel = Label(constants.root, text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}", 
             width = 40, wraplength = 500, justify = LEFT, 
@@ -25,3 +28,6 @@ timerButton = Button(constants.root, text = "Start Timer", command = timerComman
 frame = Frame(constants.root, bd = 4, bg = "grey")
 
 notes = Text(frame)
+
+layoutEdit = Button(constants.root, text = "Editor", width = 7)
+layoutEdit.config(command = lambda: editEnable(tkFrame = frame, tkSettings = settings, editButton = layoutEdit))

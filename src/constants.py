@@ -25,3 +25,4 @@ index = 0
 
 # Booleans
 collapsed = True
+editEnabled = False
