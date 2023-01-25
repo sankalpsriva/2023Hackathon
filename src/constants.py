@@ -26,3 +26,7 @@ index = 0
 # Booleans
 collapsed = True
 editEnabled = False
+
+# doubles 
+buttonDefaultRelx, buttonDefaultRely = 0.95, 0.01
+notesWindowDefaultRelx, notesWindowDefaultRely = 0.5, 0.5

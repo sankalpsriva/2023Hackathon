@@ -4,6 +4,8 @@ from playsound import playsound
 from email.message import EmailMessage
 import constants, smtplib, ssl, webbrowser
 
+mouseX, mouseY = 0, 0
+
 def rgbToColor(rgb: tuple) -> str: 
     # Code from stackoverflow about changing rgb to tkinter readable color
     return "#%02x%02x%02x" % rgb 
@@ -65,6 +67,10 @@ def sendMail(message: str, recipent: str) -> None:
 #        s.login(constants.file['userEmail'], constants.file['userPassword'])
 #        s.sendmail(constants.file['userEmail'], recipent, message)
 #        print("message sent")
+
+def reset(set: Button, tkFrame: Frame):
+    set.place(anchor = N, relx = constants.buttonDefaultRelx, rely = constants.buttonDefaultRely)  
+    tkFrame.place(anchor = N, relx = constants.notesWindowDefaultRelx, rely = constants.notesWindowDefaultRely)  
     
     
 def labelUpdate(label: Label) -> None:
@@ -74,19 +80,27 @@ def labelUpdate(label: Label) -> None:
 def editEnable(tkFrame: Frame, tkSettings: Button, editButton: Button):
     if not constants.editEnabled:
         editButton.config(bg = "green")
+        make_draggable(tkFrame)
+        make_draggable(tkSettings)      
         constants.editEnabled = True
     else:
         editButton.config(bg = "white")
+        make_undragable(tkFrame)
+        make_undragable(tkSettings)
         constants.editEnabled = False
-        
-    make_draggable(tkFrame)
-    make_draggable(tkSettings)
 
+def motion(event):
+    mouseX, mouseY = event.x, event.y
+    
 #    makes items draggable
 def make_draggable(widget):
     widget.bind("<Button-1>", on_drag_start)
     widget.bind("<B1-Motion>", on_drag_motion)
-
+    
+def make_undragable(widget):
+    widget.unbind("<Button-1>")
+    widget.unbind("<B1-Motion>")
+    
 def on_drag_start(event):
     widget = event.widget
     widget._drag_start_x = event.x
@@ -94,8 +108,8 @@ def on_drag_start(event):
 
 def on_drag_motion(event):
     widget = event.widget
-    x = widget.winfo_x() - widget._drag_start_x + event.x
-    y = widget.winfo_y() - widget._drag_start_y + event.y
+    x = widget.winfo_x() + widget._drag_start_x + event.x
+    y = widget.winfo_y() + widget._drag_start_y + event.y
     widget.place(x=x, y=y)
 
 def timerCommand() -> None:
@@ -107,3 +121,6 @@ def timerCommand() -> None:
     
 def openWebsite(url: str) -> None:
     webbrowser.open(url)
+    
+    
+    

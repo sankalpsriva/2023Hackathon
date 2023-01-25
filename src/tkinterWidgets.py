@@ -11,6 +11,8 @@ button = Button(constants.root, command = lambda: collapse(button))
 
 settings = Button(constants.root, image = gearImage, text = "settings", command = settingsMenu)
 
+resetButton = Button(constants.root, text = "Reset", command = reset) 
+
 mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 7)
 
 googleButton = Button(constants.root, text = "Google", command = lambda: openWebsite("google.com")) 
