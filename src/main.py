@@ -26,6 +26,7 @@ tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
 tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
 tkinterWidgets.frame.pack()
 tkinterWidgets.notes.place(anchor = N, relx = 0.5, rely = 0.5)
+fonts = list(font.families())
 
 # Below is stuff to find all font and find the one we love best
 
