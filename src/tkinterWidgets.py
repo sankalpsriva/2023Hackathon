@@ -15,6 +15,10 @@ resetButton = Button(constants.root, text = "Reset", command = reset)
 
 mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 7)
 
+calenderButton = Button(constants.root, text = "Calender", command = calender(), width = 7) 
+
+# Redirecting Buttons
+
 googleButton = Button(constants.root, text = "Google", command = lambda: openWebsite("google.com")) 
 canvasButton = Button(constants.root, text = "Canvas", command = lambda: openWebsite("hse.instructure.com")) 
 skywardButton = Button(constants.root, text = "Skyward", command = lambda: openWebsite("https://sis.hse.k12.in.us/scripts/wsisa.dll/WService=wsEAplus/seplog01.w")) 

@@ -17,8 +17,11 @@ constants.root.bind("<Motion>", motion)
 tkinterWidgets.button.place(anchor = NW, width = 10, height = constants.heightOnClick)
 tkinterWidgets.settings.place(anchor = N, relx = 0.95, rely = 0.01)
 tkinterWidgets.timeLabel.place(anchor = N, relx = 0.5, rely = -0.001)
+tkinterWidgets.calenderButton.place(anchor = N, relx = 0.95, rely = 0.25)
 tkinterWidgets.mailButton.place(anchor = N, relx = 0.95, rely = 0.15)
 tkinterWidgets.timerButton.place(anchor = N, relx = 0.95, rely = 0.20)
+
+# redirecting buttons
 tkinterWidgets.googleButton.place(anchor = N, relx = 0.95, rely = 0.3)
 tkinterWidgets.canvasButton.place(anchor = N, relx = 0.95, rely = 0.35)
 tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
