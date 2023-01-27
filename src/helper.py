@@ -2,9 +2,17 @@ from tkinter import *
 from datetime import datetime
 from playsound import playsound
 from email.message import EmailMessage
-import constants, smtplib, ssl, webbrowser
+import constants, smtplib, ssl, webbrowser, json
 
 mouseX, mouseY = 0, 0
+
+def submitNotes(notes: Text):
+ with open(r"data\notes.json",'r+') as file:
+        file_data = json.load(file)
+        file_data["Notes"].append(notes.get(1.0, "end-1c"))
+        file.seek(0)
+        json.dump(file_data, file, indent = 4)
+        
 
 def rgbToColor(rgb: tuple) -> str: 
     # Code from stackoverflow about changing rgb to tkinter readable color

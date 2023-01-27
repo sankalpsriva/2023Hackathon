@@ -63,6 +63,8 @@ make_draggable(tkinterWidgets.settings)
 notes = Text(frame)
 notes.pack()
 
+submitButton = Button(constants.root, text = "Submit", width = 5, command = lambda: helper.submitNotes(notes))
+submitButton.place(anchor = N, relx = 0.5, rely = 0.8)
 layoutEdit = Button(constants.root, text = "Editor", width = 7)
 layoutEdit.config(command = lambda: editEnable(tkFrame = frame, tkSettings = tkinterWidgets.settings, editButton = layoutEdit))
 layoutEdit.place(anchor = N, relx = 0.02, rely = 0)
