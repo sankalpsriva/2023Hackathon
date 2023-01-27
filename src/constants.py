@@ -1,10 +1,9 @@
 from tkinter import *
 from helper import *
-from PIL import Image, ImageTk 
-import random, json
+import json
 
 # JSON 
-with open('src\data\settings.json') as file: 
+with open('data\settings.json') as file: 
     file = json.load(file)
     emailEnding = file['userEmail'][str(file['userEmail']).index("@") + 1: ]
 
@@ -22,6 +21,12 @@ fontSize = file['fontSize']
 # Integers
 heightOnClick = 700
 widthOnClick = 100
+index = 0
 
 # Booleans
 collapsed = True
+editEnabled = False
+
+# doubles 
+buttonDefaultRelx, buttonDefaultRely = 0.95, 0.01
+notesWindowDefaultRelx, notesWindowDefaultRely = 0.5, 0.5
