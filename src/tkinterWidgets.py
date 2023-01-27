@@ -30,6 +30,3 @@ timerButton = Button(constants.root, text = "Start Timer", command = timerComman
 frame = Frame(constants.root, bd = 4, bg = "grey")
 
 notes = Text(frame)
-
-layoutEdit = Button(constants.root, text = "Editor", width = 7)
-layoutEdit.config(command = lambda: editEnable(tkFrame = frame, tkSettings = settings, editButton = layoutEdit))
