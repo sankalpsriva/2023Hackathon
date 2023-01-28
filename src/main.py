@@ -14,7 +14,7 @@ constants.root.bind("<Motion>", motion)
 
 
 # Tkinter Widgets Placement
-tkinterWidgets.button.place(anchor = NW, width = 10, height = constants.heightOnClick)
+tkinterWidgets.button.place(anchor = NW, height = constants.heightOnClick)
 tkinterWidgets.settings.place(anchor = N, relx = 0.95, rely = 0.01)
 tkinterWidgets.timeLabel.place(anchor = N, relx = 0.5, rely = -0.001)
 tkinterWidgets.calenderButton.place(anchor = N, relx = 0.95, rely = 0.25)
@@ -57,14 +57,24 @@ base = 0
 if datetime.now().strftime('%m') == '01':
     for e in range(1,6):
         for i in range(1,8):
-            days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
-            days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
+            if base + i < 32:
+                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
+                days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
+            else:
+                days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
+                days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
         base = i*e
 if datetime.now().strftime('%m') == '02':
-    for e in range(5):
-        for i in range(7):
-            days = Button(constants.root, text = "Saterday", font = ("Times New Roman", 10), width = 10)
-            days.place(anchor=N, relx = 0.2+0.1*i ,rely = 0.2+0.15*e)
+    for e in range(1,6):
+        for i in range(1,8):
+            if base + i < 28:
+                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
+                days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
+            else:
+                days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
+                days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
+#we are making all of the days a proof of concept becasue it would take way to long to put every single day of the month and week into a 
+                
 
         
 
