@@ -27,7 +27,7 @@ def collapse(button: Button) -> None:
         button.place(anchor = N, width = 20, height = constants.heightOnClick)
         constants.collapsed = True
     playsound(r"audio\buttonClick.mp3")
-        
+# settings
 def settingsMenu() -> None:
     
     root = Tk()
@@ -39,6 +39,7 @@ def settingsMenu() -> None:
     
     root.mainloop()
 
+# email 
 def emailMenu() -> None:
     playsound(r"audio\buttonClick.mp3")
     
@@ -67,6 +68,42 @@ def emailMenu() -> None:
     
     root.mainloop()
     
+def calenderMenu() -> None:
+    root = Tk()
+    root.title("Calender")
+    root.geometry("1000x500")
+    root.config(bg = rgbToColor(constants.color))
+    
+    day1 = Button(root, text = "Sunday", font = ("Times New Roman", 10),width = 17)
+    day1.place(anchor = N, relx = 0.2, rely = 0.15)
+    
+    day2 = Button(root, text = "Monday", font = ("Times New Roman", 10), width = 17 )
+    day2.place(anchor = N, relx = 0.3, rely = 0.15)
+      
+    day3 = Button(root, text = "Tuesday", font = ("Times New Roman", 10), width = 17)
+    day3.place(anchor = N, relx = 0.4, rely = 0.15)
+      
+    day4 = Button(root, text = "Wednesday", font = ("Times New Roman", 10), width = 17)
+    day4.place(anchor = N, relx = 0.5, rely = 0.15)
+      
+    day5 = Button(root, text = "Thursday", font = ("Times New Roman", 10), width = 17)
+    day5.place(anchor = N, relx = 0.6, rely = 0.15)
+      
+    day6 = Button(root, text = "Friday", font = ("Times New Roman", 10), width = 17)
+    day6.place(anchor = N, relx = 0.7, rely = 0.15)
+      
+    day7 = Button(root, text = "Saterday", font = ("Times New Roman", 10), width = 17)
+    day7.place(anchor = N, relx = 0.8, rely = 0.15)  
+    
+    
+    root.mainloop()
+    
+    
+    
+    
+    
+    
+    
 def sendMail(message: str, recipent: str) -> None: 
     print(f'smtp.{constants.emailEnding}')
     print(constants.file['userPassword'])
@@ -80,29 +117,9 @@ def reset(set: Button, tkFrame: Frame):
     set.place(anchor = N, relx = constants.buttonDefaultRelx, rely = constants.buttonDefaultRely)  
     tkFrame.place(anchor = N, relx = constants.notesWindowDefaultRelx, rely = constants.notesWindowDefaultRely)  
 
-def calender():
-    # calander days
 
-    sunday = Label(constants.root, text ="Sunday")
-    sunday.place(anchor = N, relx = 0, rely = 0.35)
-
-    monday = Label(constants.root, text ="Monday")
-    monday.place(anchor = N, relx = 0, rely = 0.35)
-
-    tuesday = Label(constants.root, text ="Tuesday")
-    tuesday.place(anchor = N, relx = 0, rely = 0.35)
-
-    wednesday = Label(constants.root, text ="Wednesday")
-    wednesday.place(anchor = N, relx = 0, rely = 0.35)
-
-    thurday = Label(constants.root, text ="Thursday")
-    thurday.place(anchor = N, relx = 0, rely = 0.35)
-
-    friday = Label(constants.root, text ="Friday")
-    friday.place(anchor = N, relx = 0, rely = 0.35)
-
-    saturday = Label(constants.root, text ="Saturday")
-    saturday.place(anchor = N, relx = 0, rely = 0.35)
+        
+    
     
 def labelUpdate(label: Label) -> None:
     label.config(text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}")

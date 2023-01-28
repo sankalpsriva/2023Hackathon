@@ -72,5 +72,7 @@ layoutEdit = Button(constants.root, text = "Editor", width = 7)
 layoutEdit.config(command = lambda: editEnable(tkFrame = frame, tkSettings = tkinterWidgets.settings, editButton = layoutEdit))
 layoutEdit.place(anchor = N, relx = 0.02, rely = 0)
 
+saveDesktop = Button(constants.root, text = "Save Desktop", width = 10, command = lambda: constants.desktopData())
+saveDesktop.place(anchor = N, relx = 0.95, rely = 0.60)
 
 constants.root.mainloop()   
