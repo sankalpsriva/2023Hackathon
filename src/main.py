@@ -37,40 +37,42 @@ tkinterWidgets.excelButton.place(anchor = N, relx = 0.05, rely = 0.4)
 
 # calender 
 
-day1 = Button(constants.root, text = "Sunday", font = ("Times New Roman", 10),width = 17)
+day1 = Button(constants.root, text = "Sunday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day1.place(anchor = N, relx = 0.2, rely = 0.15)
     
-day2 = Button(constants.root, text = "Monday", font = ("Times New Roman", 10), width = 17 )
+day2 = Button(constants.root, text = "Monday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day2.place(anchor = N, relx = 0.3, rely = 0.15)
       
-day3 = Button(constants.root, text = "Tuesday", font = ("Times New Roman", 10), width = 17)
+day3 = Button(constants.root, text = "Tuesday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day3.place(anchor = N, relx = 0.4, rely = 0.15)
       
-day4 = Button(constants.root, text = "Wednesday", font = ("Times New Roman", 10), width = 17)
+day4 = Button(constants.root, text = "Wednesday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day4.place(anchor = N, relx = 0.5, rely = 0.15)
       
-day5 = Button(constants.root, text = "Thursday", font = ("Times New Roman", 10), width = 17)
+day5 = Button(constants.root, text = "Thursday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day5.place(anchor = N, relx = 0.6, rely = 0.15)
       
-day6 = Button(constants.root, text = "Friday", font = ("Times New Roman", 10), width = 17)
+day6 = Button(constants.root, text = "Friday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day6.place(anchor = N, relx = 0.7, rely = 0.15)
       
-day7 = Button(constants.root, text = "Saterday", font = ("Times New Roman", 10), width = 17)
+day7 = Button(constants.root, text = "Saturday", font = ("Times New Roman", 10), width = 17, relief = SUNKEN)
 day7.place(anchor = N, relx = 0.8, rely = 0.15)  
 
 base = 0
-
-if datetime.now().strftime('%m') == '01':
+currentMonth = datetime.now().strftime('%m')
+#we are making all of the days a proof of concept becasue it would take way to long to put every single day of the month and week into a 
+if currentMonth == '01':
     for e in range(1,6):
         for i in range(1,8):
             if base + i < 32:
-                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
+                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10, command = lambda: dayNotes(currentMonth, base+i))
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
             else:
                 days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
         base = i*e
-if datetime.now().strftime('%m') == '02':
+        
+if currentMonth == '02':
     for e in range(1,6):
         for i in range(1,8):
             if base + i < 28:
@@ -79,20 +81,8 @@ if datetime.now().strftime('%m') == '02':
             else:
                 days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
-#we are making all of the days a proof of concept becasue it would take way to long to put every single day of the month and week into a 
-                
 
-        
-
-
-
-
-
-
-
-
-
-
+            
 
 # Normally this code would not be here but it isn't working without it being in the same file
 
@@ -130,6 +120,6 @@ layoutEdit.config(command = lambda: editEnable(ztkSettings = tkinterWidgets.sett
 layoutEdit.place(anchor = N, relx = 0.02, rely = 0)
 
 saveDesktop = Button(constants.root, text = "Save Desktop", width = 10, command = lambda: constants.desktopData())
-saveDesktop.place(anchor = N, relx = 0.95, rely = 0.60)
+saveDesktop.place(anchor = N, relx = 0.95, rely = 0.65)
 
 constants.root.mainloop()   

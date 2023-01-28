@@ -35,7 +35,8 @@ def settingsMenu() -> None:
     root.title("Settings") 
     root.geometry("400x400")
     root.config(bg = rgbToColor(constants.color))
-                    
+
+
     playsound(r"audio\buttonClick.mp3")
                         
     root.mainloop()
@@ -46,23 +47,43 @@ def emailMenu() -> None:
     
     root = Tk()
     root.title("Email")
-    root.geometry("500x500")
+    root.geometry("1000x950")
     root.config(bg = rgbToColor(constants.color))
     
     subjectLabel = Label(root, text = "Subject", font = ("Times New Roman", 10), fg = rgbToColor(constants.cColor), bg = rgbToColor(constants.color))
-    subjectEntry = Entry(root, width = 25)
-    subjectEntry.focus_set()
+    subjectEntry = Entry(root, width = 35)
+    
     
     recipentLabel = Label(root, text = "Recipent", font = ("Times New Roman", 10), fg = rgbToColor(constants.cColor), bg = rgbToColor(constants.color))
     recipentEntry = Entry(root, width = 35)  
     
-    submitButton = Button(root, text = "Submit", font = ("Times New Roman", 10), command = lambda: sendMail("Hello", recipentEntry.get()))
-     
+    userPasswordLabel = Label(root, text = "User Password", font = ("Times New Roman", 10), fg = rgbToColor(constants.cColor), bg = rgbToColor(constants.color))
+    userPasswordEntry = Entry(root, width = 35, show = "*") 
     
-    subjectEntry.place(anchor = N, relx = 0.5, rely = 0.15)   
+    userEmail = Entry(root, width = 35)
+    userEmail.place(anchor = N, relx = 0.5, rely = 0.05)
+    
+    userPasswordLabel.place(anchor = N, relx = 0.5, rely = 0.075)
+    userPasswordEntry.place(anchor = N, relx = 0.5, rely = 0.1)
+    
+    submitButton = Button(root, text = "Submit", font = ("Times New Roman", 10), command = lambda: sendMail(userEmail.get(), userPasswordEntry.get(), notes.get(1.0 , "end-1c"), recipentEntry.get()))
+     
+    userEmailLabel = Label(root, text = "Your Email", font = ("Times New Roman", 10), 
+                           fg = "red", bg = rgbToColor(constants.color))
+    userEmailLabel.place(anchor = N, relx = 0.5, rely = .01)
+
+    
+    frame = Frame(root, bd=4, bg="grey")
+    frame.place(x = 175, y = 300)
+    
+    notes = Text(frame)
+    notes.pack()
+
+    
+    subjectEntry.place(anchor = N, relx = 0.5, rely = 0.2)   
     recipentEntry.place(anchor = N, relx = 0.5, rely = 0.3) 
     
-    subjectLabel.place(anchor = N, relx = 0.5, rely = 0.1)
+    subjectLabel.place(anchor = N, relx = 0.5, rely = 0.15)
     recipentLabel.place(anchor = N, relx = 0.5, rely = 0.25)
     
     submitButton.place(anchor = N, relx = 0.5, rely = 0.85)
@@ -101,20 +122,11 @@ def calenderMenu() -> None:
     
     root.mainloop()
     
-    
-    
-    
-    
-    
-    
-def sendMail(message: str, recipent: str) -> None: 
-    print(f'smtp.{constants.emailEnding}')
-    print(constants.file['userPassword'])
-    print(f'{recipent}')
-#    with smtplib.SMTP_SSL(f'smtp.{constants.emailEnding}', 465, context = ssl.create_default_context()) as s:
-#        s.login(constants.file['userEmail'], constants.file['userPassword'])
-#        s.sendmail(constants.file['userEmail'], recipent, message)
-#        print("message sent")
+def sendMail(userEmail: str, userPassword: str, message: str, recipent: str) -> None: 
+    ending = userEmail[userEmail.find("@"): ]
+    with smtplib.SMTP_SSL(f'smtp.{ending}', 465, context = ssl.create_default_context()) as s:
+       s.login(userEmail, userPassword)
+       s.sendmail(userEmail, recipent, message)
 
 def reset(set: Button, tkFrame: Frame):
     set.place(anchor = N, relx = constants.buttonDefaultRelx, rely = constants.buttonDefaultRely)  
@@ -196,6 +208,28 @@ def notesMenu():
     
     notes = Text(frame)
     notes.pack()
+
+    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
+    submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
+
+    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile)
+    saveNotesToTextButton.place(anchor = N, relx = 0.35, rely = 0.8)
+
+    playsound(r"audio\buttonClick.mp3")
+
+def dayNotes(month, day):
+    root = Tk() 
+    root.title("Notes")
+    root.geometry("700x700")
+    root.config(bg = rgbToColor(constants.color))
+    
+    frame = Frame(root, bd=4, bg="grey")
+    frame.place(x = 25, y = 100)
+    
+    notes = Text(frame)
+    notes.pack()
+    monday = Label(root, text = month)
+    monday.place(anchor = N, relx = 0.5, rely = 0.35)
 
     submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
     submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
