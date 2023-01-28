@@ -7,6 +7,32 @@ import constants
 # Images
 gearImage = PhotoImage(file = 'images\gear.png')
 
+# labels
+
+# calander days
+
+sunday = Label(constants.root, text ="Sunday")
+sunday.place(anchor = N, relx = -1, rely = 0.35)
+
+monday = Label(constants.root, text ="Monday")
+monday.place(anchor = N, relx = -1, rely = 0.35)
+
+tuesday = Label(constants.root, text ="Tuesday")
+tuesday.place(anchor = N, relx = -1, rely = 0.35)
+
+wednesday = Label(constants.root, text ="Wednesday")
+wednesday.place(anchor = N, relx = -1, rely = 0.35)
+
+thurday = Label(constants.root, text ="Thursday")
+thurday.place(anchor = N, relx = -1, rely = 0.35)
+
+friday = Label(constants.root, text ="Friday")
+friday.place(anchor = N, relx = -1, rely = 0.35)
+
+saturday = Label(constants.root, text ="Saturday")
+saturday.place(anchor = N, relx = -1, rely = 0.35)
+
+# usefull stuff needs better name
 button = Button(constants.root, command = lambda: collapse(button))
 
 settings = Button(constants.root, image = gearImage, text = "settings", command = settingsMenu)
@@ -15,7 +41,7 @@ resetButton = Button(constants.root, text = "Reset", command = reset)
 
 mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 7)
 
-calenderButton = Button(constants.root, text = "Calender", command = calender(), width = 7) 
+calenderButton = Button(constants.root, text = "Calender", command = calenderMenu, width = 7) 
 
 # Redirecting Buttons
 

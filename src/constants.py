@@ -1,6 +1,6 @@
 from tkinter import *
 from helper import *
-import json
+import json, os
 
 # JSON 
 with open('data\settings.json') as file: 
@@ -26,7 +26,18 @@ index = 0
 # Booleans
 collapsed = True
 editEnabled = False
+calender = False
 
 # doubles 
 buttonDefaultRelx, buttonDefaultRely = 0.95, 0.01
 notesWindowDefaultRelx, notesWindowDefaultRely = 0.5, 0.5
+
+# User Desktop info
+desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
+def desktopData():
+ with open(r"data\desktop.json",'r+') as file:
+        file_data = json.load(file)
+        file_data["DesktopLocation"].append(desktop)
+        file_data["DesktopLocation"].append(os.listdir(desktop))
+        file.seek(0)
+        json.dump(file_data, file, indent = 4)
