@@ -153,5 +153,5 @@ def timerCommand() -> None:
 def openWebsite(url: str) -> None:
     webbrowser.open(url)
     
-    
+def viewNotes():...
     
