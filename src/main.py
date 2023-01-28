@@ -29,6 +29,54 @@ tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
 tkinterWidgets.notesButton.place(anchor = N, relx = 0.95, rely = 0.5)
 
 
+# calender 
+
+day1 = Button(constants.root, text = "Sunday", font = ("Times New Roman", 10),width = 17)
+day1.place(anchor = N, relx = 0.2, rely = 0.15)
+    
+day2 = Button(constants.root, text = "Monday", font = ("Times New Roman", 10), width = 17 )
+day2.place(anchor = N, relx = 0.3, rely = 0.15)
+      
+day3 = Button(constants.root, text = "Tuesday", font = ("Times New Roman", 10), width = 17)
+day3.place(anchor = N, relx = 0.4, rely = 0.15)
+      
+day4 = Button(constants.root, text = "Wednesday", font = ("Times New Roman", 10), width = 17)
+day4.place(anchor = N, relx = 0.5, rely = 0.15)
+      
+day5 = Button(constants.root, text = "Thursday", font = ("Times New Roman", 10), width = 17)
+day5.place(anchor = N, relx = 0.6, rely = 0.15)
+      
+day6 = Button(constants.root, text = "Friday", font = ("Times New Roman", 10), width = 17)
+day6.place(anchor = N, relx = 0.7, rely = 0.15)
+      
+day7 = Button(constants.root, text = "Saterday", font = ("Times New Roman", 10), width = 17)
+day7.place(anchor = N, relx = 0.8, rely = 0.15)  
+
+base = 0
+
+if datetime.now().strftime('%m') == '01':
+    for e in range(1,6):
+        for i in range(1,8):
+            days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
+            days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
+        base = i*e
+if datetime.now().strftime('%m') == '02':
+    for e in range(5):
+        for i in range(7):
+            days = Button(constants.root, text = "Saterday", font = ("Times New Roman", 10), width = 10)
+            days.place(anchor=N, relx = 0.2+0.1*i ,rely = 0.2+0.15*e)
+
+        
+
+
+
+
+
+
+
+
+
+
 # Normally this code would not be here but it isn't working without it being in the same file
 
 def editEnable(tkSettings: Button, editButton: Button):
