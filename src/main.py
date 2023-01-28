@@ -27,9 +27,13 @@ tkinterWidgets.canvasButton.place(anchor = N, relx = 0.95, rely = 0.35)
 tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
 tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
 tkinterWidgets.notesButton.place(anchor = N, relx = 0.95, rely = 0.5)
-tkinterWidgets.desmosButton.place(anchor = N, relx = 0.95, rely = 0.55)
-tkinterWidgets.graphingButton.place(anchor = N, relx = 0.95, rely = 0.6)
 
+tkinterWidgets.desmosButton.place(anchor = N, relx = 0.05, rely = 0.15)
+tkinterWidgets.graphingButton.place(anchor = N, relx = 0.05, rely = 0.2)
+tkinterWidgets.tutoringButton.place(anchor = N, relx = 0.05, rely = 0.25)
+tkinterWidgets.wordButton.place(anchor = N, relx = 0.05, rely = 0.3)
+tkinterWidgets.powerPointButton.place(anchor = N, relx = 0.05, rely = 0.35)
+tkinterWidgets.excelButton.place(anchor = N, relx = 0.05, rely = 0.4)
 
 # calender 
 

@@ -54,7 +54,10 @@ skywardButton = Button(constants.root, text = "Skyward", command = lambda: openW
 cleverButton = Button(constants.root, text = "Clever", command = lambda: openWebsite("clever.com")) 
 desmosButton = Button(constants.root, text = "Calculator", command = lambda: openWebsite("https://www.desmos.com/scientific")) 
 graphingButton = Button(constants.root, text = "Graphing", command = lambda: openWebsite("https://www.desmos.com/calculator"))
-
+tutoringButton = Button(constants.root, text = "Khan", command = lambda: openWebsite("https://www.khanacademy.org/"))
+wordButton = Button(constants.root, text = "Word", command = lambda: openWebsite("https://www.office.com/launch/word?auth=2"))
+powerPointButton = Button(constants.root, text = "Power Point", command = lambda: openWebsite("https://www.office.com/launch/powerpoint?auth=2"))
+excelButton = Button(constants.root, text = "Excel", command = lambda: openWebsite("https://www.office.com/launch/excel?auth=2"))
 
 timeLabel = Label(constants.root, text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}", 
             width = 40, wraplength = 500, justify = LEFT, 
