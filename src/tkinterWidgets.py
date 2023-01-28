@@ -44,7 +44,7 @@ mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 
 
 calenderButton = Button(constants.root, text = "Calender", command = calenderMenu, width = 10) 
 
-notesButton = Button(constants.root, text = "Notes", command = notesMenu, width = 10)
+notesButton = Button(constants.root, text = "Notes", command = notesMenu, width = 5)
 
 # Redirecting Buttons
 
