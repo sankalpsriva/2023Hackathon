@@ -53,18 +53,19 @@ day7 = Button(constants.root, text = "Saterday", font = ("Times New Roman", 10),
 day7.place(anchor = N, relx = 0.8, rely = 0.15)  
 
 base = 0
-
-if datetime.now().strftime('%m') == '01':
+currentMonth = datetime.now().strftime('%m')
+#we are making all of the days a proof of concept becasue it would take way to long to put every single day of the month and week into a 
+if currentMonth == '01':
     for e in range(1,6):
         for i in range(1,8):
             if base + i < 32:
-                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10)
+                days = Button(constants.root, text =  base + i, font = ("Times New Roman", 10), width = 10, command = lambda: dayNotes(currentMonth, base+i))
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
             else:
                 days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
         base = i*e
-if datetime.now().strftime('%m') == '02':
+if currentMonth == '02':
     for e in range(1,6):
         for i in range(1,8):
             if base + i < 28:
@@ -73,7 +74,7 @@ if datetime.now().strftime('%m') == '02':
             else:
                 days = Button(constants.root, text =  " ", font = ("Times New Roman", 10), width = 10)
                 days.place(anchor=N, relx = 0.2+0.1*(i-1) ,rely = 0.2+0.15*(e-1))
-#we are making all of the days a proof of concept becasue it would take way to long to put every single day of the month and week into a 
+
                 
 
         
