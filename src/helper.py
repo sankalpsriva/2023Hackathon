@@ -21,15 +21,15 @@ def collapse(button: Button) -> None:
     playsound(r"audio\buttonClick.mp3")
         
 def settingsMenu() -> None:
-    
     root = Tk()
     root.title("Settings") 
     root.geometry("400x400")
     root.config(bg = rgbToColor(constants.color))
-    
+                    
     playsound(r"audio\buttonClick.mp3")
-    
+                        
     root.mainloop()
+
 
 def emailMenu() -> None:
     playsound(r"audio\buttonClick.mp3")

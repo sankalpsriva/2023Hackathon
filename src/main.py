@@ -23,6 +23,8 @@ tkinterWidgets.googleButton.place(anchor = N, relx = 0.95, rely = 0.3)
 tkinterWidgets.canvasButton.place(anchor = N, relx = 0.95, rely = 0.35)
 tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
 tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
+tkinterWidgets.desmosButton.place(anchor = N, relx = 0.2, rely = 0.15)
+tkinterWidgets.graphingButton.place(anchor = N, relx = 0.2, rely = 0.2)
 
 
 # Normally this code would not be here but it isn't working without it being in the same file
