@@ -32,6 +32,7 @@ friday.place(anchor = N, relx = -1, rely = 0.35)
 saturday = Label(constants.root, text ="Saturday")
 saturday.place(anchor = N, relx = -1, rely = 0.35)
 
+
 # usefull stuff needs better name
 button = Button(constants.root, command = lambda: collapse(button))
 
@@ -42,6 +43,8 @@ resetButton = Button(constants.root, text = "Reset", command = reset)
 mailButton = Button(constants.root, text = "Mail", command = emailMenu, width = 7)
 
 calenderButton = Button(constants.root, text = "Calender", command = calenderMenu, width = 7) 
+
+notesButton = Button(constants.root, text = "Notes", command = notesMenu, width = 7)
 
 # Redirecting Buttons
 
@@ -56,7 +59,3 @@ timeLabel = Label(constants.root, text = f"{datetime.now().replace(microsecond=0
             font = Font(family = "Times New Roman", size = 30, weight = "bold"))
 
 timerButton = Button(constants.root, text = "Start Timer", command = timerCommand) 
-
-frame = Frame(constants.root, bd = 4, bg = "grey")
-
-notes = Text(frame)

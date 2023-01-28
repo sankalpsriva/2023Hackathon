@@ -26,19 +26,18 @@ tkinterWidgets.googleButton.place(anchor = N, relx = 0.95, rely = 0.3)
 tkinterWidgets.canvasButton.place(anchor = N, relx = 0.95, rely = 0.35)
 tkinterWidgets.skywardButton.place(anchor = N, relx = 0.95, rely = 0.4)
 tkinterWidgets.cleverButton.place(anchor = N, relx = 0.95, rely = 0.45)
+tkinterWidgets.notesButton.place(anchor = N, relx = 0.95, rely = 0.5)
 
 
 # Normally this code would not be here but it isn't working without it being in the same file
 
-def editEnable(tkFrame: Frame, tkSettings: Button, editButton: Button):
+def editEnable(tkSettings: Button, editButton: Button):
     if not constants.editEnabled:
         editButton.config(bg = "green")
-        make_draggable(tkFrame)
         make_draggable(tkSettings)      
         constants.editEnabled = True
     else:
         editButton.config(bg = "white")
-        make_undragable(tkFrame)
         make_undragable(tkSettings)
         constants.editEnabled = False
         
@@ -58,20 +57,11 @@ def on_drag_motion(event):
     widget.place(x=x, y=y)
 
 
-frame = Frame(constants.root, bd=4, bg="grey")
-frame.place(x = 380, y = 100)
-make_draggable(frame)
+# make_draggable(frame)
 make_draggable(tkinterWidgets.settings)
 
-notes = Text(frame)
-notes.pack()
-
-submitButton = Button(constants.root, text = "Submit", width = 5, command = lambda: helper.submitNotes(notes))
-submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
-
-viewNotes = Button(constants.root, text = "View Saved Notes", width = 5, command = helper.viewNotes)
 layoutEdit = Button(constants.root, text = "Editor", width = 7)
-layoutEdit.config(command = lambda: editEnable(tkFrame = frame, tkSettings = tkinterWidgets.settings, editButton = layoutEdit))
+layoutEdit.config(command = lambda: editEnable(ztkSettings = tkinterWidgets.settings, editButton = layoutEdit))
 layoutEdit.place(anchor = N, relx = 0.02, rely = 0)
 
 saveDesktop = Button(constants.root, text = "Save Desktop", width = 10, command = lambda: constants.desktopData())

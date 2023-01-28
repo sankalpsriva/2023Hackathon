@@ -2,7 +2,7 @@ from tkinter import *
 from datetime import datetime
 from playsound import playsound
 from email.message import EmailMessage
-import constants, smtplib, ssl, webbrowser, json
+import constants, smtplib, ssl, webbrowser, json, os
 
 mouseX, mouseY = 0, 0
 
@@ -11,6 +11,8 @@ def submitNotes(notes: Text):
         file_data = json.load(file)
         file_data["Notes"].append(notes.get(1.0, "end-1c"))
         file.seek(0)
+        
+        print(file_data)
         json.dump(file_data, file, indent = 4)
         
 
@@ -73,7 +75,9 @@ def calenderMenu() -> None:
     root.title("Calender")
     root.geometry("1000x500")
     root.config(bg = rgbToColor(constants.color))
-    
+     
+    playsound(r"audio\buttonClick.mp3")
+
     day1 = Button(root, text = "Sunday", font = ("Times New Roman", 10),width = 17)
     day1.place(anchor = N, relx = 0.2, rely = 0.15)
     
@@ -115,17 +119,14 @@ def sendMail(message: str, recipent: str) -> None:
 
 def reset(set: Button, tkFrame: Frame):
     set.place(anchor = N, relx = constants.buttonDefaultRelx, rely = constants.buttonDefaultRely)  
-    tkFrame.place(anchor = N, relx = constants.notesWindowDefaultRelx, rely = constants.notesWindowDefaultRely)  
-
-
-        
-    
+    tkFrame.place(anchor = N, relx = constants.notesWindowDefaultRelx, rely = constants.notesWindowDefaultRely) 
     
 def labelUpdate(label: Label) -> None:
     label.config(text = f"{datetime.now().replace(microsecond=0).strftime('%d-%m-20%y - %I:%M:%S')}")
     constants.root.after(1000, lambda: labelUpdate(label)) 
 
 def editEnable(tkFrame: Frame, tkSettings: Button, editButton: Button):
+    playsound(r"audio\buttonClick.mp3")
     if not constants.editEnabled:
         editButton.config(bg = "green")
         make_draggable(tkFrame)
@@ -166,9 +167,41 @@ def timerCommand() -> None:
     root.title("Timer")
     root.geometry("500x500")
     root.config(bg = rgbToColor(constants.color))
+
+    playsound(r"audio\buttonClick.mp3")
     
 def openWebsite(url: str) -> None:
     webbrowser.open(url)
     
-def viewNotes():...
+def saveNotesToTextFile():
+    with open(r"data\notes.json", "r+") as jsonFile, open(r"userNotes\userNotes.txt", 'a') as txtFile:
+        jsonFileReadable = json.load(jsonFile)["Notes"]
+        for line in jsonFileReadable:
+            txtFile.write(f"\n{line}")  
+        jsonFileReadable = { 
+                            "Notes" : [] 
+        }
+        
+    with open(r'data\notes.json', 'w') as file:
+        json.dump(jsonFileReadable, file)
     
+
+def notesMenu():
+    root = Tk() 
+    root.title("Notes")
+    root.geometry("700x700")
+    root.config(bg = rgbToColor(constants.color))
+    
+    frame = Frame(root, bd=4, bg="grey")
+    frame.place(x = 25, y = 100)
+    
+    notes = Text(frame)
+    notes.pack()
+
+    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
+    submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
+
+    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile)
+    saveNotesToTextButton.place(anchor = N, relx = 0.35, rely = 0.8)
+
+    playsound(r"audio\buttonClick.mp3")
