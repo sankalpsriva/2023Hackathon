@@ -31,14 +31,13 @@ def collapse(button: Button) -> None:
     playsound(r"audio\buttonClick.mp3")
 # settings
 def settingsMenu() -> None:
-    
     root = Tk()
     root.title("Settings") 
     root.geometry("400x400")
     root.config(bg = rgbToColor(constants.color))
-    
+                    
     playsound(r"audio\buttonClick.mp3")
-    
+                        
     root.mainloop()
 
 # email 
@@ -197,6 +196,28 @@ def notesMenu():
     
     notes = Text(frame)
     notes.pack()
+
+    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
+    submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
+
+    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile)
+    saveNotesToTextButton.place(anchor = N, relx = 0.35, rely = 0.8)
+
+    playsound(r"audio\buttonClick.mp3")
+
+def dayNotes(month, day):
+    root = Tk() 
+    root.title("Notes")
+    root.geometry("700x700")
+    root.config(bg = rgbToColor(constants.color))
+    
+    frame = Frame(root, bd=4, bg="grey")
+    frame.place(x = 25, y = 100)
+    
+    notes = Text(frame)
+    notes.pack()
+    monday = Label(root, text = month)
+    monday.place(anchor = N, relx = 0.5, rely = 0.35)
 
     submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
     submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
