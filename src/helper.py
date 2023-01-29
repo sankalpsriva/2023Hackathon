@@ -98,25 +98,25 @@ def calenderMenu() -> None:
      
     playsound(r"audio\buttonClick.mp3")
 
-    day1 = Button(root, text = "Sunday", font = ("Times New Roman", 10),width = 17)
+    day1 = Button(root, text = "Sunday", font = ("Times New Roman", 10),width = 17,bg = "red")
     day1.place(anchor = N, relx = 0.2, rely = 0.15)
     
-    day2 = Button(root, text = "Monday", font = ("Times New Roman", 10), width = 17 )
+    day2 = Button(root, text = "Monday", font = ("Times New Roman", 10), width = 17,bg = "red" )
     day2.place(anchor = N, relx = 0.3, rely = 0.15)
       
-    day3 = Button(root, text = "Tuesday", font = ("Times New Roman", 10), width = 17)
+    day3 = Button(root, text = "Tuesday", font = ("Times New Roman", 10), width = 17,bg = "red")
     day3.place(anchor = N, relx = 0.4, rely = 0.15)
       
-    day4 = Button(root, text = "Wednesday", font = ("Times New Roman", 10), width = 17)
+    day4 = Button(root, text = "Wednesday", font = ("Times New Roman", 10), width = 17, bg = "red")
     day4.place(anchor = N, relx = 0.5, rely = 0.15)
       
-    day5 = Button(root, text = "Thursday", font = ("Times New Roman", 10), width = 17)
+    day5 = Button(root, text = "Thursday", font = ("Times New Roman", 10), width = 17, bg = "red")
     day5.place(anchor = N, relx = 0.6, rely = 0.15)
       
-    day6 = Button(root, text = "Friday", font = ("Times New Roman", 10), width = 17)
+    day6 = Button(root, text = "Friday", font = ("Times New Roman", 10), width = 17, bg = "red")
     day6.place(anchor = N, relx = 0.7, rely = 0.15)
       
-    day7 = Button(root, text = "Saterday", font = ("Times New Roman", 10), width = 17)
+    day7 = Button(root, text = "Saterday", font = ("Times New Roman", 10), width = 17, bg = "red")
     day7.place(anchor = N, relx = 0.8, rely = 0.15)  
     
     
@@ -209,10 +209,10 @@ def notesMenu():
     notes = Text(frame)
     notes.pack()
 
-    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
+    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes),bg = "red")
     submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
 
-    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile)
+    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile,bg = "red")
     saveNotesToTextButton.place(anchor = N, relx = 0.35, rely = 0.8)
 
     playsound(r"audio\buttonClick.mp3")
@@ -231,10 +231,10 @@ def dayNotes(month, day):
     monday = Label(root, text = month)
     monday.place(anchor = N, relx = 0.5, rely = 0.35)
 
-    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes))
+    submitButton = Button(root, text = "Submit", width = 5, command = lambda: submitNotes(notes),bg="red")
     submitButton.place(anchor = N, relx = 0.65, rely = 0.8)
 
-    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile)
+    saveNotesToTextButton = Button(root, text = "Save Notes", width = 13, command = saveNotesToTextFile,bg="red")
     saveNotesToTextButton.place(anchor = N, relx = 0.35, rely = 0.8)
 
     playsound(r"audio\buttonClick.mp3")

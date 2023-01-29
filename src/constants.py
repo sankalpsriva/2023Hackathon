@@ -11,8 +11,10 @@ with open('data\settings.json') as file:
 root = Tk()
 screensize = "1400x700"
 title = "Hackathon App"
-color =  (0, 255, 204)# (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+color =  (0, 0, 0)# (random.randint(0,255), random.randint(0,255), random.randint(0,255))
 cColor = (255, 0, (255 - 204))
+red = (255,0,0)
+black = (0,0,0)
 
 # font 
 font = file['font']
